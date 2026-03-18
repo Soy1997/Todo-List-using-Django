@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="signup-login">
+     <div class="signup-box">
+        <form method="post">
+            {% csrf_token %}
+            <div class="heading">
+                Sign Up
+            </div>
+            <div class="line"></div>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="field">
+                <b>Username</b>
+                <input type="text" required class="inp" placeholder="Enter your Username" name="fnm">
+            </div>
+            <div class="field">
+                <b>Email</b>
+                <input type="email" required class="inp" placeholder="Enter your Email" name="eml">
+            </div>
+            <div class="field">
+                <b>Password</b>
+                <input type="password" class="inp" placeholder="Enter your Password" name="pwd" required>
+            </div>
+            <div class="field">
+                <input type="submit" class="submit-btm" value="Sign Up">
+            </div>
+        </form>
+     </div>
+     <div class="feild">
+        <b>Already have an account?</b>
+        <br>
+        <a class="anc" href="{% url 'login' %}">Login here</a>
+    </div>
+  </div>
+{% endblock %}

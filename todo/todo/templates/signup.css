@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --bg:            #0d0f14;
+  --surface:       #13161d;
+  --surface-2:     #1a1e28;
+  --border:        rgba(255, 255, 255, 0.07);
+  --border-focus:  rgba(99, 179, 237, 0.5);
+  --accent:        #63b3ed;
+  --accent-glow:   rgba(99, 179, 237, 0.15);
+  --accent-2:      #f6ad55;
+  --text-primary:  #eef2f7;
+  --text-secondary:#8892a4;
+  --text-label:    #b0bac8;
+  --danger:        #fc8181;
+  --success:       #68d391;
+  --radius:        14px;
+  --transition:    0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Body & Background ── */
+body {
+  min-height: 100vh;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(99, 179, 237, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 80%, rgba(246, 173, 85, 0.05) 0%, transparent 55%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Outer wrapper ── */
+.signup-login {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  animation: fadeUp 0.6s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Card ── */
+.signup-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2.8rem 2.6rem 2.4rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.03),
+    0 24px 64px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(99, 179, 237, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle shimmer line at top of card */
+.signup-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.4;
+}
+
+/* ── Heading ── */
+.heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  margin-bottom: 0.3rem;
+}
+
+/* ── Divider ── */
+.line {
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 50%, transparent 100%);
+  border-radius: 2px;
+  margin-bottom: 1.8rem;
+  width: 48px;
+}
+
+/* ── Messages ── */
+.message {
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  border-left: 3px solid;
+}
+
+.message.error, .message.danger {
+  background: rgba(252, 129, 129, 0.08);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.message.success {
+  background: rgba(104, 211, 145, 0.08);
+  color: var(--success);
+  border-color: var(--success);
+}
+
+.message.info, .message.warning {
+  background: rgba(246, 173, 85, 0.08);
+  color: var(--accent-2);
+  border-color: var(--accent-2);
+}
+
+/* ── Fields ── */
+.field {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.field b {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Inputs ── */
+.inp {
+  width: 100%;
+  padding: 0.78rem 1rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.inp::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.inp:hover {
+  border-color: rgba(255,255,255,0.13);
+  background: rgba(255,255,255,0.03);
+}
+
+.inp:focus {
+  border-color: var(--border-focus);
+  background: rgba(99, 179, 237, 0.03);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* ── Submit Button ── */
+.submit-btm {
+  width: 100%;
+  padding: 0.85rem;
+  margin-top: 0.4rem;
+  background: linear-gradient(135deg, var(--accent) 0%, #4299e1 100%);
+  color: #0d0f14;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 20px rgba(99, 179, 237, 0.25);
+}
+
+.submit-btm:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(99, 179, 237, 0.35);
+}
+
+.submit-btm:active {
+  transform: translateY(0);
+  opacity: 1;
+  box-shadow: 0 2px 10px rgba(99, 179, 237, 0.2);
+}
+
+/* ── Bottom link area (outside card) ── */
+.signup-login > .field {
+  position: absolute;
+  bottom: 2rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+/* Reposition: make the "already have account" block sit below the card naturally */
+.signup-login {
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.signup-login > .field {
+  position: static;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.signup-login > .field b {
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.88rem;
+}
+
+/* ── Anchor ── */
+.anc {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color var(--transition), text-shadow var(--transition);
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+
+.anc:hover {
+  color: #90cdf4;
+  text-shadow: 0 0 12px rgba(99, 179, 237, 0.4);
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .signup-box {
+    padding: 2rem 1.4rem 1.8rem;
+    border-radius: 18px;
+  }
+
+  .heading {
+    font-size: 1.7rem;
+  }
+}

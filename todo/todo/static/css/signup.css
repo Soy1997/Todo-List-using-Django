@@ -1,0 +1,502 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.signup-login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.signup-box {
+    background: white;
+    padding: 50px 60px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+/* Heading */
+.heading {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Decorative Line */
+.line {
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    margin: 0 auto 40px;
+    border-radius: 3px;
+}
+
+/* Form Fields */
+.field {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.field b {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Input Fields */
+.inp {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.inp:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+    transform: scale(1.02);
+}
+
+.inp::placeholder {
+    color: #aab0b6;
+}
+
+/* Submit Button */
+.submit-btm {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.submit-btm:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btm:active {
+    transform: translateY(0);
+}
+
+/* Link Section */
+.feild {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #e1e5e9;
+}
+
+.feild b {
+    color: #666;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.anc {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.anc:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .signup-box {
+        margin: 20px;
+        padding: 40px 30px;
+        max-width: 90%;
+    }
+
+    .heading {
+        font-size: 28px;
+    }
+
+    .inp {
+        font-size: 16px;
+        padding: 14px 18px;
+    }
+
+    .submit-btm {
+        font-size: 16px;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .signup-box {
+        margin: 15px;
+        padding: 30px 20px;
+    }
+
+    .heading {
+        font-size: 24px;
+    }
+
+    .line {
+        width: 60px;
+        height: 4px;
+    }
+}
+
+/* Form Validation Styles */
+.inp:invalid {
+    border-color: #ff6b6b;
+}
+
+.inp:valid {
+    border-color: #51cf66;
+}
+
+/* Loading state for submit button */
+.submit-btm:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Messages */
+.message {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.message.info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* ============================================
+   TODO APP — signup.css
+   Theme: Dark productivity, warm amber accents
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg:        #0f0f0f;
+    --surface:   #1a1a1a;
+    --surface-2: #242424;
+    --border:    #2e2e2e;
+    --accent:    #f5a623;
+    --accent-dim:#b87a18;
+    --text:      #f0ede8;
+    --text-muted:#7a7570;
+    --danger:    #e05c5c;
+    --radius:    14px;
+    --shadow:    0 8px 32px rgba(0,0,0,0.45);
+}
+
+body {
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(ellipse 60% 50% at 20% 10%, rgba(245,166,35,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 90%, rgba(245,166,35,0.05) 0%, transparent 70%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    padding: 2rem;
+}
+
+/* ---------- Layout Wrapper ---------- */
+.signup-login {
+    width: 100%;
+    max-width: 560px;
+    animation: fadeUp 0.5s ease both;
+}
+
+/* ---------- Card ---------- */
+.signup-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem 2.5rem 2rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+/* subtle top-edge glow */
+.signup-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.6;
+}
+
+/* ---------- Heading ---------- */
+.heading {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    line-height: 1.1;
+}
+
+.heading span {
+    color: var(--accent);
+}
+
+.subheading {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+/* ---------- Form ---------- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ---------- Input ---------- */
+.inp {
+    width: 100%;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-top: 1.4rem;
+    caret-color: var(--accent);
+}
+
+.inp::placeholder {
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.inp:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.12);
+}
+
+/* ---------- Submit Button ---------- */
+.submit-btm {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    background: var(--accent);
+    color: #0f0f0f;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(245,166,35,0.25);
+}
+
+.submit-btm:hover {
+    background: #fbb93a;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(245,166,35,0.35);
+}
+
+.submit-btm:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* ---------- Task List ---------- */
+.task-list {
+    list-style: none;
+    margin-top: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    transition: border-color 0.2s, transform 0.15s;
+    animation: slideIn 0.3s ease both;
+}
+
+.task-item:hover {
+    border-color: #3e3e3e;
+    transform: translateX(3px);
+}
+
+.task-item.done .task-text {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.task-text {
+    flex: 1;
+    padding-right: 0.75rem;
+    line-height: 1.4;
+}
+
+/* Checkbox */
+.task-check {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+/* Delete button */
+.task-delete {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+    line-height: 1;
+}
+
+.task-delete:hover {
+    color: var(--danger);
+    background: rgba(224,92,92,0.1);
+}
+
+/* ---------- Empty State ---------- */
+.empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 1.5rem 0 0.5rem;
+    font-style: italic;
+}
+
+/* ---------- Divider ---------- */
+.divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.6rem 0 0;
+}
+
+/* ---------- Task Count Badge ---------- */
+.task-count {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    text-align: right;
+    letter-spacing: 0.02em;
+}
+
+.task-count strong {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ---------- Scrollbar (for task lists) ---------- */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+    .signup-box {
+        padding: 1.75rem 1.25rem 1.5rem;
+    }
+    .heading {
+        font-size: 1.6rem;
+    }
+}
