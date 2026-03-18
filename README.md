@@ -166,9 +166,4 @@ Access at: [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
-
----
-
-## 🙋‍♂️ Author
-
-Made with ❤️ by [Your Name](https://github.com/your-username)
+)
