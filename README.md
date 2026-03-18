@@ -161,9 +161,3 @@ Access at: [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 - [ ] REST API with Django REST Framework
 - [ ] Deploy to Railway / Render / Heroku
 
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-)
